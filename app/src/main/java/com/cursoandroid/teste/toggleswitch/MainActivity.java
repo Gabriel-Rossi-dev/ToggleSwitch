@@ -2,14 +2,18 @@ package com.cursoandroid.teste.toggleswitch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView textResult;
     private RadioButton radioH, radioM, radioNb;
     private CheckBox checkMail;
+    private ImageView imageView;
+    private TextView textView;
 
 
     @Override
@@ -104,6 +110,26 @@ public class MainActivity extends AppCompatActivity {
 
     public void send (View view){
 
+        imageView = new ImageView(getApplicationContext());
+        imageView.setImageResource(android.R.drawable.dialog_frame);
+
+        textView = new TextView(getApplicationContext());
+        textView.setBackgroundResource(R.color.colorPrimaryDark);
+        textView.setText("olá toast");
+
+        Toast toast = new Toast(getApplicationContext());
+        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setView(textView);
+        toast.show();
+
+        /*Toast.makeText(
+                getApplicationContext(),
+                "Ação realizada com sucesso",
+                Toast.LENGTH_LONG
+        ).show();
+
+         */
+
         /*if(togglePassword.isChecked()){
             textResult.setText("Toggle ligado");
         }else{
@@ -118,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
             textResult.setText("Switch desligado");
         }
 
-         */
+
         if (radioH.isChecked()){
             textResult.setText("Masculino Selecionado");
         }else if (radioM.isChecked()){
@@ -134,7 +160,9 @@ public class MainActivity extends AppCompatActivity {
         }else{
             textResult.setText("Você não receberá e-mails");
         }
-    }
 
+         */
+    }
+    
     }
 
